@@ -1,0 +1,54 @@
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 0;
+}
+
+.counter {
+  position: relative;
+}
+
+.container span {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  background: red;
+  border-radius: 50%;
+  height: 18px;
+  width: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 10px;
+}
+
+.container i {
+  font-size: 20px;
+}
+
+.card {
+  position: relative;
+}
+
+.card--cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  background: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.card--image {
+  height: 250px;
+  object-fit: cover;
+}
+
+.active--cart {
+  background: gray;
+}
