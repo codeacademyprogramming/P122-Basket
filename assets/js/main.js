@@ -10,28 +10,28 @@ const products = [
     id: 0,
     count: 1,
     name: "Volvo xc90",
-    price: "---- AZN",
+    price: 100000,
     img: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2021-volvo-xc90-mmp-1-1603304643.jpg",
   },
   {
     id: 1,
     count: 1,
     name: "Volvo xc60",
-    price: "---- AZN",
+    price: 80000,
     img: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2022-vilvo-xc60-mmp-1-1615394783.jpg?crop=0.764xw:1.00xh;0.119xw,0&resize=640:*",
   },
   {
     id: 2,
     count: 1,
     name: "Volvo xc40",
-    price: "---- AZN",
+    price: 60000,
     img: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2021-volvo-xc40-mmp-1-1598474101.jpg",
   },
   {
     id: 3,
     count: 1,
     name: "Volvo c40",
-    price: "---- AZN",
+    price: 60000,
     img: "https://ev-database.org/img/auto/Volvo_C40_Recharge/Volvo_C40_Recharge-01@2x.jpg",
   },
 ];
@@ -69,7 +69,7 @@ function renderProducts() {
     title.innerHTML = name;
     priceContainer.innerHTML = price;
 
-    cart.onclick = () => handleProductClick(product);
+    cart.onclick = () => handleProductClick(product)
 
     cardBody.appendChild(title);
     cardBody.appendChild(priceContainer);

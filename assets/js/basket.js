@@ -1,10 +1,15 @@
 const container = document.querySelector(".conatiner");
+const summaryContainer = document.querySelector(".summaryContainer");
+const summaryCount = document.querySelector(".summaryCount > span");
+const summaryPrice = document.querySelector(".summaryPrice > span");
 
 function renderProducts() {
   const localItems = getLocalItems();
+  let price = 0;
+  let itemCounts = 0;
 
   localItems.forEach((item) => {
-    const { img, id } = item;
+    const { img, id, count: say, price: qiymet } = item;
     const count = document.createElement("span");
     const row = document.createElement("div");
     const minusButton = document.createElement("button");
@@ -22,6 +27,9 @@ function renderProducts() {
     minusButton.onclick = () => handleButtonClick("minus", id);
     plusButton.onclick = () => handleButtonClick("plus", id);
 
+    itemCounts += say;
+    price += qiymet * say;
+
     row.appendChild(image);
     row.appendChild(name);
     row.appendChild(plusButton);
@@ -31,6 +39,9 @@ function renderProducts() {
 
     container.appendChild(row);
   });
+
+  summaryCount.innerHTML = itemCounts;
+  summaryPrice.innerHTML = price;
 }
 
 function getCountOfProduct(id) {
@@ -46,6 +57,8 @@ function getLocalItems() {
 function handleButtonClick(action, id) {
   let localItems = getLocalItems();
   const element = document.getElementById(id);
+  let count = 0;
+  let price = 0;
 
   if (action === "minus") {
     const selectedItem = localItems.find((item) => item.id === id);
@@ -60,6 +73,9 @@ function handleButtonClick(action, id) {
           element.innerHTML = item.count;
         }
 
+        count += item.count;
+        price += item.count * item.price;
+
         return item;
       });
     }
@@ -70,9 +86,16 @@ function handleButtonClick(action, id) {
         element.innerHTML = item.count;
       }
 
+      count += item.count;
+      price += item.count * item.price;
+
       return item;
     });
   }
+
+
+  summaryCount.innerHTML = count;
+  summaryPrice.innerHTML = price;
 
   localStorage.setItem("basket", JSON.stringify(localItems));
 }

@@ -1,0 +1,8 @@
+.summaryContainer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 300px;
+  width: 400px;
+  background: white
+}
